@@ -19,6 +19,7 @@ export default function App () {
 
 const Background = styled.div`
     width: 375px;
-    height: 1000px;
+    height: 100%;
     background-color: #FFFFFF;
+    padding-bottom: 10px;
 `
