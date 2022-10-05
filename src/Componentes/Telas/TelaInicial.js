@@ -2,14 +2,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import Cards from "./Cards"
+import Cards from "../Cards"
 
 
 export default function TelaInicial () {
     const [filmes, setFilmes] = useState([])
 
     useEffect(() => {
-        let promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
+        let promise = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
 
         promise.then((res) => setFilmes(res.data))
         promise.catch((err) => console.log(err.response.data))
@@ -19,7 +19,8 @@ export default function TelaInicial () {
         <>
             <Texto>Selecione o filme</Texto>
             <ContainerFilmes>
-                {filmes.map((a) => <Cards foto={a.posterURL} key={a.id}/>)}
+                {filmes ? filmes.map((a) => <Cards foto={a.posterURL} key={a.id}/>)
+                : <p>Carregando a lista de filmes...</p>}
             </ContainerFilmes>
         </>
     )

@@ -1,19 +1,22 @@
 import  styled from 'styled-components'
-import GlobalStyle from './GlobalStyle'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import GlobalStyle from './GlobalStyle'
 import Header from './Componentes/Header'
-import TelaInicial from './Componentes/TelaInicial'
+import TelaInicial from './Componentes/Telas/TelaInicial'
 
 export default function App () {
-   
+        
     return (
-        <>
+        <BrowserRouter>
             <GlobalStyle/>
             <Background>
                 <Header/>
-                <TelaInicial/>
+                <Routes>
+                    <Route path="/" element={<TelaInicial/>} />
+                </Routes>
             </Background>
-        </>
+        </BrowserRouter>
     )
 }
 
