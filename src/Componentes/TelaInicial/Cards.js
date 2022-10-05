@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
-export default function Cards ({foto}) {
+export default function Cards ({foto,id}) {
+
     return (
-        <Card onClick="exibirHorarios">
+        <Card >
             <img src={foto} alt="poster filme"/>
         </Card>
     )

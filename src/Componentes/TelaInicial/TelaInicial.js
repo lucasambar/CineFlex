@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 
-import Cards from "../Cards"
+import Cards from "./Cards"
 
 
 export default function TelaInicial () {
@@ -19,7 +19,7 @@ export default function TelaInicial () {
         <>
             <Texto>Selecione o filme</Texto>
             <ContainerFilmes>
-                {filmes ? filmes.map((a) => <Cards foto={a.posterURL} key={a.id}/>)
+                {filmes ? filmes.map((a) => <Cards foto={a.posterURL} nome={a.title} id={a.id} key={a.id}/>)
                 : <p>Carregando a lista de filmes...</p>}
             </ContainerFilmes>
         </>
