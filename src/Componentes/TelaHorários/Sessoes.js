@@ -1,13 +1,18 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Sessoes ({data, dia, horarios}) {
     return (
-        <Dia>
-            <Texto>{`${dia} - ${data}`}</Texto>
-            <div>
-                {horarios.map((a) => <Horario key={a.id}>{a.name}</Horario>)} 
-            </div>
-        </Dia>
+            <Dia>
+                <Texto>{`${dia} - ${data}`}</Texto>
+                <div>
+                    {horarios.map((a) => 
+                        <Link to={`/assentos/${a.id}`}>
+                            <Horario key={a.id}>{a.name}</Horario>
+                        </Link>
+                    )} 
+                </div>
+            </Dia>
     )
 }
 

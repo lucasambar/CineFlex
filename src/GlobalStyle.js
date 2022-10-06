@@ -50,7 +50,7 @@ table {
     box-sizing: border-box;
 }
 body{
-	background-color: #E5E5E5;
+	background-color: antiquewhite;
 }
 
 `
