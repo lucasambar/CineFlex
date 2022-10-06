@@ -3,28 +3,31 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import Footer from "../Footer";
+import Footer from "./Footer";
 import Sessoes from "./Sessoes";
 
 
 export default function TelaHorários () {
     const {sessaoId} = useParams()
     const [dados,setDados] = useState([])
+    const [dias,setDias] = useState([])
 
     useEffect(() => {
-        let promessa = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${sessaoId}/showtimes`)
+        let promessa = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${sessaoId}/showtimes`)
 
-        promessa.then((a) => setDados(a.data))
+        promessa.then((a) => {
+            setDados(a.data)
+            setDias(a.data.days)})
         promessa.catch((a) => console.log(a.response.data))
     },[sessaoId])
     
-    let array = dados.days
 
+    
     return (
         <>
             <Texto>Selecione o horário</Texto>
             <SessaoContainer>
-                {array.map((d) => <Sessoes data={d.date} dia={d.weekday} key={d.id} horarios={d.showtimes}/>)}
+                {dias.map((d) => <Sessoes data={d.date} dia={d.weekday} key={d.id} id={d.id} horarios={d.showtimes}/>)}
             </SessaoContainer>
             <Footer nome={dados.title} poster={dados.posterURL}/>
         </>

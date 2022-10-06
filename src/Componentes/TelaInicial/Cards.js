@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Cards ({foto,id}) {
 
     return (
-        <Card >
-            <img src={foto} alt="poster filme"/>
-        </Card>
+        <Link to={`/sessoes/${id}`}>
+            <Card onClick={() => console.log(id)}>
+                <img src={foto} alt="poster filme"/>
+            </Card>
+        </Link>
+
     )
 }
 
