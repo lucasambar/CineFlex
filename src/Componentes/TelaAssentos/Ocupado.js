@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
-export default function Assento ({num, livre}) {
-    
+export default function Ocupado ({num}) {  
     return (
-        <Div cor={livre}>{num}</Div>
+        <Div onClick={() => alert("Esse assento não está disponível.")}>{num}</Div>
     )
 }
 
@@ -11,15 +10,13 @@ const Div = styled.div`
     height: 26px;
     width: 26px;
     border-radius: 12px;
-    border: 1px solid #808F9D;
-    background-color: ${props => (props.cor)};
+    border: 1px solid #F7C52B;
+    background-color: #FBE192;
 
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 13px;
-
-    cursor: pointer;
 
     font-family: Roboto;
     font-size: 11px;

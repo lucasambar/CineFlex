@@ -13,7 +13,7 @@ export default function TelaHorários () {
     const [dias,setDias] = useState([])
 
     useEffect(() => {
-        let promessa = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${sessaoId}/showtimes`)
+        let promessa = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${sessaoId}/showtimes`)
 
         promessa.then((a) => {
             setDados(a.data)
@@ -26,10 +26,13 @@ export default function TelaHorários () {
     return (
         <>
             <Texto>Selecione o horário</Texto>
+            
             <SessaoContainer>
                 {dias.map((d) => <Sessoes data={d.date} dia={d.weekday} key={d.id} id={d.id} horarios={d.showtimes}/>)}
             </SessaoContainer>
+
             <Footer nome={dados.title} poster={dados.posterURL}/>
+            <Espaço/>
         </>
     )
 }
@@ -53,4 +56,8 @@ const Texto = styled.div`
 `
 const SessaoContainer = styled.div`
     width: 100%;
+`
+const Espaço = styled.div`
+    height: 117px;
+    width: 375px;
 `

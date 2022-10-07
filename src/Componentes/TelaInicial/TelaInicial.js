@@ -9,7 +9,7 @@ export default function TelaInicial () {
     const [filmes, setFilmes] = useState([])
 
     useEffect(() => {
-        let promise = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies")
+        let promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
 
         promise.then((res) => setFilmes(res.data))
         promise.catch((err) => console.log(err.response.data))

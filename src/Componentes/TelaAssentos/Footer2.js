@@ -1,6 +1,17 @@
 import styled from "styled-components"
+import { useEffect } from "react"
 
-export default function Footer ({filme, dia, hora}) {
+export default function Footer2 ({filme, dia, hora, setFilme}) {
+
+    useEffect(() => {
+            let obj ={
+            nome: filme.title,
+            dia: dia.date,
+            hora: hora,
+        }
+        setFilme(obj)
+    },[filme, dia, hora, setFilme])
+    
     return (
         <Foot>
             <Imagem><img src={filme.posterURL} alt=""/></Imagem>
