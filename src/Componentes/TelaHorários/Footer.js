@@ -3,8 +3,8 @@ import styled from "styled-components"
 export default function Footer ({nome,poster}) {
     return (
         <Foot>
-            <Imagem><img src={poster} alt=""/></Imagem>
-            <div>
+            <Imagem data-identifier="movie-img-preview"><img src={poster} alt=""/></Imagem>
+            <div data-identifier="movie-and-session-infos-preview">
                 <Texto>{nome}</Texto>
             </div>
         </Foot>

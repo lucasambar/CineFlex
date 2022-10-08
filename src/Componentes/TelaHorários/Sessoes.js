@@ -4,11 +4,11 @@ import styled from "styled-components"
 export default function Sessoes ({data, dia, horarios}) {
     return (
             <Dia>
-                <Texto>{`${dia} - ${data}`}</Texto>
+                <Texto data-identifier="session-date">{`${dia} - ${data}`}</Texto>
                 <div>
                     {horarios.map((a) => 
                         <Link to={`/assentos/${a.id}`}>
-                            <Horario key={a.id}>{a.name}</Horario>
+                            <Horario key={a.id} data-identifier="hour-minute-btn">{a.name}</Horario>
                         </Link>
                     )} 
                 </div>

@@ -31,16 +31,16 @@ export default function Formulario ({selecionados, dados, setDados}) {
         <Form onSubmit={enviar}>
             <div>
                 <Label htmlFor="nome">Nome do comprador</Label>
-                <Input type="text" id="nome" placeholder="Insira o seu nome..." value={nome} onChange={(e) => setNome(e.target.value)} required/>
+                <Input type="text" id="nome" placeholder="Insira o seu nome..." value={nome} onChange={(e) => setNome(e.target.value)} required data-identifier="buyer-name-input" />
             </div>
 
             <div>
                 <Label htmlFor="cpf">CPF do comprador</Label>
-                <Input type="text" id="cpf" placeholder="Insira o seu CPF..." value={cpf} onChange={(e) => setCpf(e.target.value)} required/>
+                <Input type="text" id="cpf" placeholder="Insira o seu CPF..." value={cpf} onChange={(e) => setCpf(e.target.value)} required data-identifier="buyer-cpf-input"/>
             </div>
 
             <Link to="/sucesso">
-                <Button type="submit">Reservar assento(s)</Button>
+                <Button type="submit" data-identifier="reservation-btn">Reservar assento(s)</Button>
             </Link>
         </Form>
     )

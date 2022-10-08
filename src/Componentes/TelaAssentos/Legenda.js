@@ -2,10 +2,10 @@ import styled from "styled-components"
 
 export default function Legenda () {
     return (
-        <ExempContainer>
-            <Exemp cor="#1AAE9E" borda="#0E7D71"><div/>Selecionado</Exemp>
-            <Exemp cor="#C3CFD9" borda="#7B8B99"><div/>Disponível</Exemp>
-            <Exemp cor="#FBE192" borda="#F7C52B"><div/>Indisponível</Exemp>
+        <ExempContainer >
+            <Exemp cor="#1AAE9E" borda="#0E7D71" data-identifier="seat-selected-subtitle" ><div/>Selecionado</Exemp>
+            <Exemp cor="#C3CFD9" borda="#7B8B99"  data-identifier="seat-available-subtitle"><div/>Disponível</Exemp>
+            <Exemp cor="#FBE192" borda="#F7C52B" data-identifier="seat-unavailable-subtitle"><div/>Indisponível</Exemp>
         </ExempContainer>
     )
 }

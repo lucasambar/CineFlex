@@ -5,7 +5,7 @@ export default function Cards ({foto,id}) {
 
     return (
         <Link to={`/sessoes/${id}`}>
-            <Card onClick={() => console.log(id)}>
+            <Card data-identifier="movie-outdoor" >
                 <img src={foto} alt="poster filme"/>
             </Card>
         </Link>
@@ -25,7 +25,7 @@ const Card = styled.div`
     align-items: center;
     
     cursor: pointer;
-    
+
     img {
         height: 193px;
         width: 129px;

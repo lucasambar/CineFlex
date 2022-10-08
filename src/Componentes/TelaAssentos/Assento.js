@@ -19,7 +19,7 @@ export default function Assento ({num, selecionados, setSelecionados}) {
     }
 
     return (
-        <Div select={select} onClick={()=>selecionar(num)}>{num}</Div>
+        <Div select={select} onClick={()=>selecionar(num)} data-identifier="seat">{num}</Div>
     )
 }
 

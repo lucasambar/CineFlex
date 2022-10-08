@@ -2,8 +2,6 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export default function TelaSucesso ({dados, filme}) {
-    console.log(filme, dados)
-
     return (
         <>
             <Texto>Pedido feito com sucesso!</Texto>
@@ -11,23 +9,23 @@ export default function TelaSucesso ({dados, filme}) {
             <CaixaInfo>
                 <div>
                     <Titulo>Filme e sessão</Titulo>
-                    <Subtitulo>{filme.nome}</Subtitulo>
-                    <Subtitulo>{`${filme.dia} ${filme.hora}`}</Subtitulo>
+                    <Subtitulo data-identifier="movie-session-infos-reserve-finished" >{filme.nome}</Subtitulo>
+                    <Subtitulo data-identifier="movie-session-infos-reserve-finished" >{`${filme.dia} ${filme.hora}`}</Subtitulo>
                 </div>
 
                 <div>
                     <Titulo>Ingressos</Titulo>
-                    {dados.assentos.map((a) => <Subtitulo key={a}>Assento {a}</Subtitulo>)}
+                    {dados.assentos.map((a) => <Subtitulo key={a} data-identifier="seat-infos-reserve-finished">Assento {a}</Subtitulo>)}
                 </div>
 
                 <div>
                     <Titulo>Comprador</Titulo>
-                    <Subtitulo>{dados.nome}</Subtitulo>
-                    <Subtitulo>{dados.cpf}</Subtitulo>
+                    <Subtitulo data-identifier="buyer-infos-reserve-finished">{dados.nome}</Subtitulo>
+                    <Subtitulo data-identifier="buyer-infos-reserve-finished">{dados.cpf}</Subtitulo>
                 </div>
             </CaixaInfo>
 
-            <Link to="/"><Botao>Voltar para home</Botao></Link>
+            <Link to="/"><Botao data-identifier="back-to-home-btn">Voltar para home</Botao></Link>
         </>
     )
 }
