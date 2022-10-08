@@ -10,7 +10,7 @@ import Legenda from "./Legenda"
 import Ocupado from "./Ocupado"
 
 
-export default function TelaAssentos ({setDados, setFilme}) {
+export default function TelaAssentos ({dados, setDados, filme, setFilme}) {
     const {assentoId} = useParams()
 
     const [movie, setMovie] = useState([])
@@ -18,6 +18,7 @@ export default function TelaAssentos ({setDados, setFilme}) {
     const [hora, setHora] = useState("")
     const [seats, setSeats] = useState([])
     const [selecionados, setSelecionados] = useState([])
+
 
     useEffect(() => {
         let promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${assentoId}/seats`)
@@ -30,6 +31,12 @@ export default function TelaAssentos ({setDados, setFilme}) {
         promisse.catch((a) => console.log(a.response.data))
     },[assentoId])
 
+    let obj = filme
+    obj.dia = day.date
+    obj.hora = hora
+    obj.nome = movie.title
+    setFilme(obj)
+
     return (
         <>
             <Texto>Selecione o(s) assento(s)</Texto>
@@ -41,7 +48,7 @@ export default function TelaAssentos ({setDados, setFilme}) {
 
             <Legenda/>
 
-            <Formulario selecionados={selecionados} setDados={setDados}/>
+            <Formulario selecionados={selecionados} dados={dados} setDados={setDados}/>
 
             <Footer2 filme={movie} dia={day} hora={hora} setFilme={setFilme}/> 
             <Espaço/>

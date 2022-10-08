@@ -5,8 +5,20 @@ import styled from "styled-components"
 import Cards from "./Cards"
 
 
-export default function TelaInicial () {
+export default function TelaInicial ({filme, setFilme, dados, setDados}) {
     const [filmes, setFilmes] = useState([])
+
+    let arr1 = filme
+    arr1.nome= ""
+    arr1.hora=""
+    arr1.dia= ""
+    setFilme(arr1)
+
+    let arr2 = dados
+    arr2.nome= ""
+    arr2.cpf=""
+    arr2.assentos= []
+    setFilme(arr2)
 
     useEffect(() => {
         let promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")

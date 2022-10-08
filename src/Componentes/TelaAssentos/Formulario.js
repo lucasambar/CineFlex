@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 
-export default function Formulario ({selecionados, setDados}) {
+export default function Formulario ({selecionados, dados, setDados}) {
     const [nome,setNome] = useState("")
     const [cpf, setCpf] = useState("")
 
@@ -16,27 +16,30 @@ export default function Formulario ({selecionados, setDados}) {
             name: nome,
             cpf: cpf,
         }
-
-        setDados(obj)
-
         let promisse = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",obj)
         promisse.then((a) => console.log(a.data))
         promisse.catch((a) => console.log(a))
     }
 
+    let obj2 = dados
+    obj2.nome = nome
+    obj2.cpf = cpf
+    obj2.assentos = selecionados
+    setDados(obj2)
+    
     return (
         <Form onSubmit={enviar}>
             <div>
                 <Label htmlFor="nome">Nome do comprador</Label>
-                <Input type="text" id="nome" placeholder="Insira o seu nome..." onChange={(e) => setNome(e.target.value)} value={nome} required/>
+                <Input type="text" id="nome" placeholder="Insira o seu nome..." value={nome} onChange={(e) => setNome(e.target.value)} required/>
             </div>
 
             <div>
                 <Label htmlFor="cpf">CPF do comprador</Label>
-                <Input type="text" id="cpf" placeholder="Insira o seu CPF..." onChange={(e) => setCpf(e.target.value)} value={cpf} required/>
+                <Input type="text" id="cpf" placeholder="Insira o seu CPF..." value={cpf} onChange={(e) => setCpf(e.target.value)} required/>
             </div>
 
-            <Link to="./sucesso">
+            <Link to="/sucesso">
                 <Button type="submit">Reservar assento(s)</Button>
             </Link>
         </Form>

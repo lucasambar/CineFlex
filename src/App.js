@@ -11,8 +11,16 @@ import TelaSucesso from "./Componentes/TelaSucesso"
 
 
 export default function App () {
-    const [dados, setDados] = useState({})
-    const [filme, setFilme] = useState({})
+    const [dados, setDados] = useState({
+        nome: "",
+        cpf:"",
+        assentos:[]
+    })
+    const [filme, setFilme] = useState({
+        nome: "",
+        hora:"",
+        dia: ""
+    })
 
     return (
         <BrowserRouter>
@@ -20,10 +28,10 @@ export default function App () {
             <Background>
                 <Header/>
                 <Routes>
-                    <Route path="/" element={<TelaInicial />} />
+                    <Route path="/" element={<TelaInicial dados={dados} setDados={setDados} filme={filme} setFilme={setFilme}/>} />
                     <Route path="/sessoes/:sessaoId" element={<TelaHorários />} />
-                    <Route path="/assentos/:assentoId" element={<TelaAssentos setDados={setDados} setFilme={setFilme}/>} />
-                    <Route path="/sucesso" element={<TelaSucesso dados={dados} filmma={filme}/>}/>
+                    <Route path="/assentos/:assentoId" element={<TelaAssentos dados={dados} setDados={setDados} filme={filme} setFilme={setFilme}/>} />
+                    <Route path="/sucesso" element={<TelaSucesso dados={dados} filme={filme}/>}/>
                 </Routes>
             </Background>
         </BrowserRouter>

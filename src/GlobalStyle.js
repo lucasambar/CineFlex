@@ -52,6 +52,9 @@ table {
 body{
 	background-color: antiquewhite;
 }
+a{
+	text-decoration: none;
+}
 
 `
 export default GlobalStyle

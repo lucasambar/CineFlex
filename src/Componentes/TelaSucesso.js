@@ -1,6 +1,9 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 export default function TelaSucesso ({dados, filme}) {
+    console.log(filme, dados)
+
     return (
         <>
             <Texto>Pedido feito com sucesso!</Texto>
@@ -8,24 +11,23 @@ export default function TelaSucesso ({dados, filme}) {
             <CaixaInfo>
                 <div>
                     <Titulo>Filme e sessão</Titulo>
-                    <Subtitulo>Título do filme</Subtitulo>
-                    <Subtitulo>Dia e hora do filme</Subtitulo>
+                    <Subtitulo>{filme.nome}</Subtitulo>
+                    <Subtitulo>{`${filme.dia} ${filme.hora}`}</Subtitulo>
                 </div>
 
                 <div>
                     <Titulo>Ingressos</Titulo>
-                    <Subtitulo>Assento 10</Subtitulo>
-                    <Subtitulo>Assento 11</Subtitulo>
+                    {dados.assentos.map((a) => <Subtitulo key={a}>Assento {a}</Subtitulo>)}
                 </div>
 
                 <div>
                     <Titulo>Comprador</Titulo>
-                    <Subtitulo>Nome do comprador</Subtitulo>
-                    <Subtitulo>CPF do comprador</Subtitulo>
+                    <Subtitulo>{dados.nome}</Subtitulo>
+                    <Subtitulo>{dados.cpf}</Subtitulo>
                 </div>
             </CaixaInfo>
 
-            <Botao>Voltar para home</Botao>
+            <Link to="/"><Botao>Voltar para home</Botao></Link>
         </>
     )
 }
